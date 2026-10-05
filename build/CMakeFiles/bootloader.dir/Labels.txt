@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/home/oriol/esp/projects/Project_PE/build/CMakeFiles/bootloader
+/home/oriol/esp/projects/Project_PE/build/CMakeFiles/bootloader.rule
+/home/oriol/esp/projects/Project_PE/build/CMakeFiles/bootloader-complete.rule
+/home/oriol/esp/projects/Project_PE/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/home/oriol/esp/projects/Project_PE/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/oriol/esp/projects/Project_PE/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/oriol/esp/projects/Project_PE/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/oriol/esp/projects/Project_PE/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/oriol/esp/projects/Project_PE/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/oriol/esp/projects/Project_PE/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

@@ -1,0 +1,2 @@
+source /home/oriol/esp/projects/Project_PE/build/bootloader/gdbinit/symbols
+source /home/oriol/esp/projects/Project_PE/build/bootloader/gdbinit/connect
