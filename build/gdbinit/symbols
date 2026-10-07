@@ -17,4 +17,4 @@ set confirm off
 set confirm on
 
 # Load application symbols
-file /home/oriol/esp/projects/Project_PE/build/RF_Detector.elf
+file /home/oriol/esp/projects/Project_PE/build/rf_mapping_project.elf

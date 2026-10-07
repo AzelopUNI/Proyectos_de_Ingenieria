@@ -1,0 +1,16 @@
+Command: ninja flash
+[1/5] cd /home/oriol/esp/projects/Project_PE/build && /home/oriol/.espressif/python_env/idf6.1_py3.14_env/bin/python /home/oriol/.espressif/v6.1/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/oriol/esp/projects/Project_PE/build/partition_table/partition-table.bin /home/oriol/esp/projects/Project_PE/build/rf_mapping_project.bin
+rf_mapping_project.bin binary size 0xbcc70 bytes. Smallest app partition is 0x100000 bytes. 0x43390 bytes (26%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] cd /home/oriol/esp/projects/Project_PE/build/bootloader && /home/oriol/.espressif/python_env/idf6.1_py3.14_env/bin/python /home/oriol/.espressif/v6.1/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 /home/oriol/esp/projects/Project_PE/build/bootloader/bootloader.bin
+Bootloader binary size 0x5280 bytes. 0x2d80 bytes (36%) free.
+[3/5] No install step for 'bootloader'
+[4/5] Completed 'bootloader'
+[4/5] Running utility command for flash
+esptool --chip esp32s3 -p /dev/ttyUSB0 -b 460800 --before=default-reset --after=hard-reset write-flash --flash-mode dio --flash-freq 80m --flash-size 2MB 0x0 bootloader/bootloader.bin 0x8000 partition_table/partition-table.bin 0x10000 rf_mapping_project.bin --skip-flashed
+esptool v5.4.0
+Serial port /dev/ttyUSB0:
+
+[31mFAILED: [0mCMakeFiles/flash.util 
+cd /home/oriol/esp/projects/Project_PE && /usr/bin/cmake -D IDF_PATH=/home/oriol/.espressif/v6.1/esp-idf -D "SERIAL_TOOL=/home/oriol/.espressif/python_env/idf6.1_py3.14_env/bin/python;-m;esptool;--chip;esp32s3" -D "SERIAL_TOOL_ARGS=--before=default-reset;--after=hard-reset;write-flash;@flash_args" -D SERIAL_TOOL_IS_WRITE_FLASH=1 -D SERIAL_TOOL_FLASH_ARGS_FILE=flash_args -D WORKING_DIRECTORY=/home/oriol/esp/projects/Project_PE/build -P /home/oriol/.espressif/v6.1/esp-idf/components/esptool_py/run_serial_tool.cmake
+ninja: build stopped: subcommand failed.

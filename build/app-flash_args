@@ -1,2 +1,2 @@
 --flash-mode dio --flash-freq 80m --flash-size 2MB
-0x10000 RF_Detector.bin
+0x10000 rf_mapping_project.bin

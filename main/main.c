@@ -1,73 +1,56 @@
-#include <stdio.h>
-
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include "esp_log.h"
 
-#include "esp_wifi.h"
-#include "esp_event.h"
-#include "esp_netif.h"
-#include "nvs_flash.h"
+#include "wifi_scan.h"
+#include "sensor_data.h"
 
-void wifi_scan(void)
-{
-    uint16_t ap_count = 0;
+static const char *TAG = "main";
 
-    wifi_scan_config_t scan_config = {
-        .ssid = NULL,
-        .bssid = NULL,
-        .channel = 0,
-        .show_hidden = true
-    };
-
-    ESP_ERROR_CHECK(esp_wifi_scan_start(&scan_config, true));
-
-    ESP_ERROR_CHECK(esp_wifi_scan_get_ap_num(&ap_count));
-
-    wifi_ap_record_t ap_records[50];
-
-    if(ap_count > 50)
-        ap_count = 50;
-
-    ESP_ERROR_CHECK(
-        esp_wifi_scan_get_ap_records(&ap_count, ap_records)
-    );
-
-    printf("\nFound %u APs\n\n", ap_count);
-
-    for(int i=0; i<ap_count; i++)
-    {
-        printf(
-            "%2d | CH:%2d | RSSI:%4d | %s\n",
-            i,
-            ap_records[i].primary,
-            ap_records[i].rssi,
-            (char*)ap_records[i].ssid
-        );
-    }
-}
+// Intervalo entre escaneos WiFi completos. Un escaneo activo de los 13
+// canales ya tarda 1-3 s y consume bastante, asi que no conviene bajar
+// de unos pocos segundos salvo que useis una bici muy lenta o querais
+// mas resolucion espacial a costa de bateria.
+#define WIFI_SCAN_INTERVAL_MS 8000
 
 void app_main(void)
 {
-    ESP_ERROR_CHECK(nvs_flash_init());
+    ESP_LOGI(TAG, "Iniciando proyecto de mapeo radioelectrico (Terrassa/Barcelona)");
 
-    ESP_ERROR_CHECK(esp_netif_init());
+    ESP_ERROR_CHECK(wifi_scan_init());
 
-    ESP_ERROR_CHECK(esp_event_loop_create_default());
+    while (1) {
+        wifi_scan_result_t wifi_result;
+        esp_err_t err = wifi_scan_perform(&wifi_result);
 
-    wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+        if (err == ESP_OK) {
+            segment_data_t segment;
 
-    ESP_ERROR_CHECK(esp_wifi_init(&cfg));
+            // --- Punto de enganche GPS (pendiente) ---
+            // Persona 1: aqui es donde, cuando tengais el modulo GPS,
+            // leeriais la posicion/velocidad actual y la pasariais a
+            // sensor_data_build_segment() o la asignariais directamente
+            // a segment.gps despues de construir el segmento.
+            // ej.: gps_data_t gps; gps_read(&gps); segment.gps = gps;
 
-    ESP_ERROR_CHECK(
-        esp_wifi_set_mode(WIFI_MODE_STA)
-    );
+            sensor_data_build_segment(&segment, &wifi_result);
 
-    ESP_ERROR_CHECK(esp_wifi_start());
+            // --- Punto de enganche NRF24L01+ (pendiente) ---
+            // Persona 1: cuando tengais el sensor RF, haced aqui el barrido
+            // (p.ej. rf_scan_perform(&rf_result)) y asignad el resultado
+            // a segment.rf antes de imprimir/publicar.
 
-    while(1)
-    {
-        wifi_scan();
+            sensor_data_print_segment(&segment);
 
-        vTaskDelay(pdMS_TO_TICKS(5000));
+            // --- Punto de enganche Sentilo (pendiente) ---
+            // Persona 2: aqui se llamaria a algo como
+            // sentilo_publish(&segment); una vez tengais sentilo.c/.h
+            // implementado (buffer en flash + envio por lotes via HTTP).
+
+        } else {
+            ESP_LOGW(TAG, "Escaneo WiFi fallido, se reintentara en el siguiente ciclo");
+        }
+
+        vTaskDelay(pdMS_TO_TICKS(WIFI_SCAN_INTERVAL_MS));
     }
 }

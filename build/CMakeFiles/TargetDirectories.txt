@@ -6,7 +6,7 @@
 /home/oriol/esp/projects/Project_PE/build/CMakeFiles/flash.dir
 /home/oriol/esp/projects/Project_PE/build/CMakeFiles/bootloader.dir
 /home/oriol/esp/projects/Project_PE/build/CMakeFiles/_project_elf_src.dir
-/home/oriol/esp/projects/Project_PE/build/CMakeFiles/RF_Detector.elf.dir
+/home/oriol/esp/projects/Project_PE/build/CMakeFiles/rf_mapping_project.elf.dir
 /home/oriol/esp/projects/Project_PE/build/CMakeFiles/size.dir
 /home/oriol/esp/projects/Project_PE/build/CMakeFiles/size-files.dir
 /home/oriol/esp/projects/Project_PE/build/CMakeFiles/size-components.dir
@@ -16,7 +16,7 @@
 /home/oriol/esp/projects/Project_PE/build/CMakeFiles/uf2.dir
 /home/oriol/esp/projects/Project_PE/build/CMakeFiles/uf2-app.dir
 /home/oriol/esp/projects/Project_PE/build/CMakeFiles/__ldgen_output_sections.ld.dir
-/home/oriol/esp/projects/Project_PE/build/CMakeFiles/gen_RF_Detector_binary.dir
+/home/oriol/esp/projects/Project_PE/build/CMakeFiles/gen_rf_mapping_project_binary.dir
 /home/oriol/esp/projects/Project_PE/build/CMakeFiles/gen_project_binary.dir
 /home/oriol/esp/projects/Project_PE/build/CMakeFiles/app.dir
 /home/oriol/esp/projects/Project_PE/build/CMakeFiles/app-flash.dir

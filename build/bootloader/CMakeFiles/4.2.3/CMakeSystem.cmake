@@ -1,6 +1,6 @@
-set(CMAKE_HOST_SYSTEM "Linux-7.0.0-34-generic")
+set(CMAKE_HOST_SYSTEM "Linux-7.0.0-38-generic")
 set(CMAKE_HOST_SYSTEM_NAME "Linux")
-set(CMAKE_HOST_SYSTEM_VERSION "7.0.0-34-generic")
+set(CMAKE_HOST_SYSTEM_VERSION "7.0.0-38-generic")
 set(CMAKE_HOST_SYSTEM_PROCESSOR "x86_64")
 
 include("/home/oriol/esp/projects/Project_PE/build/bootloader/toolchain/toolchain-esp32s3.cmake")

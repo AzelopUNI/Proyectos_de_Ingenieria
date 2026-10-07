@@ -1,6 +1,3 @@
 cmake_minimum_required(VERSION 3.16)
-
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
-
-project(RF_Detector)
-
+project(rf_mapping_project)
