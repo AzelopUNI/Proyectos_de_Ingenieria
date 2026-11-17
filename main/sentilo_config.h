@@ -12,12 +12,12 @@
 #define SENTILO_WIFI_PASSWORD  "cositassi"
 
 // URL base de la API de Sentilo, SIN barra final. Puerto habitual: 8081
-#define SENTILO_API_URL        "http://TU_SERVIDOR:8081"
+#define SENTILO_API_URL        "http://147.83.83.21:8081"
 #define SENTILO_USE_HTTPS      0      // 1 si SENTILO_API_URL empieza por https://
 
 // Identificador del provider y su token (cabecera IDENTITY_KEY)
-#define SENTILO_PROVIDER       "TU_PROVIDER_ID"
-#define SENTILO_TOKEN          "TU_TOKEN_DE_PROVIDER"
+#define SENTILO_PROVIDER       "grup_6-103@ProyectoUltron"
+#define SENTILO_TOKEN          "5b4acea3c3a90215a6edcff4f8740f617875c8a19a4b68cbe348f62b42c42f24"
 
 // Prefijo de los IDs de sensor (deben ser unicos dentro del provider).
 // Sensores finales: bici01_wifi_ap_count, bici01_rf_spectrum, ...
