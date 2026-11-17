@@ -8,8 +8,8 @@
 
 // WiFi al que se conecta la placa SOLO para subir datos (p.ej. hotspot del movil).
 // El ESP32-S3 solo soporta 2.4 GHz: en iPhone activa "Maximizar compatibilidad".
-#define SENTILO_WIFI_SSID      "TU_HOTSPOT"
-#define SENTILO_WIFI_PASSWORD  "TU_PASSWORD"
+#define SENTILO_WIFI_SSID      "Redmi Note 14 5G"
+#define SENTILO_WIFI_PASSWORD  "cositassi"
 
 // URL base de la API de Sentilo, SIN barra final. Puerto habitual: 8081
 #define SENTILO_API_URL        "http://TU_SERVIDOR:8081"
