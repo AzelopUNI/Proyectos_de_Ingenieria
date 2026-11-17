@@ -13,7 +13,7 @@
 
 // URL base de la API de Sentilo, SIN barra final. Puerto habitual: 8081
 #define SENTILO_API_URL        "http://147.83.83.21:8081"
-#define SENTILO_USE_HTTPS      0      // 1 si SENTILO_API_URL empieza por https://
+#define SENTILO_USE_HTTPS      1      // 1 si SENTILO_API_URL empieza por https://
 
 // Identificador del provider y su token (cabecera IDENTITY_KEY)
 #define SENTILO_PROVIDER       "grup_6-103@ProyectoUltron"
